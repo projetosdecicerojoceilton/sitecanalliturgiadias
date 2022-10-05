@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP CANAL</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div id="divFeed"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="./js/FeedEk.min.js"></script>
+
+    <script>
+        $(function() {
+
+            var xml = "https://www.youtube.com/feeds/videos.xml?channel_id=UCGgPxRbmuRCzjD2hw7scyGw"
+
+            $('#divFeed').FeedEk({
+                FeedUrl : xml,
+                MaxCount : 100,
+                ShowDesc : false,
+                ShowPubDate:true,
+                DescCharacterLimit:100,
+                TitleLinkTarget:'_blank',
+                DateFormat : 'MM/dd/yyyy',
+                DateFormatLang : 'en',
+                Offset: 5,
+                ShowAuthor: true,
+                AuthorLabel:"Author:",
+                Success: function (feedItems) { },
+                Error: function (error) { }
+            });
+
+        })
+    </script>
+    
+</body>
+</html>
